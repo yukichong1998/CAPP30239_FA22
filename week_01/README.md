@@ -1,3 +1,3 @@
 # Yuki Chong
 
-![My Data Selfie](data_selfie.jpg)
+![My Data Selfie](data_selfie.jpeg)
