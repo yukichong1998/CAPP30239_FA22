@@ -14,7 +14,7 @@ The intersection of tech and design - being able to translate messy (and sometim
 
 ### week_02: Data Humanism & Introduction to JavaScript
 - README.md: Data sources for final project
-- dear_data.png/dear_data_legend.png: Dear Data project (Collecting small and personal data)
+- dear_data.png/dear_data_legend.png: Project 1 - Dear Data (Collecting small and personal data)
 - index.html: HTML file for HTML/JavaScript exercise
 - script.js: JavaScript basics
 
