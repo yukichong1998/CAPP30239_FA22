@@ -9,11 +9,12 @@ The intersection of tech and design - being able to translate messy (and sometim
 ### week_01: Introduction to HTML & CSS
 - README.md: Data selfie and self-introduction
 - index.html: HTML file for Frankenstein HTML/CSS exercise 
-- Frankenstein.txt: Text file for HTML/CSS exercise 
+- frankenstein.txt: Text file for HTML/CSS exercise
+- data_selfie.jpeg: Data selfie 
 
 ### week_02: Data Humanism & Introduction to JavaScript
 - README.md: Data sources for final project
-- dear_data.png: Dear Data project (Collecting small and personal data)
+- dear_data.png/dear_data_legend.png: Dear Data project (Collecting small and personal data)
 - index.html: HTML file for HTML/JavaScript exercise
 - script.js: JavaScript basics
 
