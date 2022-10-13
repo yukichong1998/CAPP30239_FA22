@@ -5,5 +5,15 @@ The intersection of tech and design - being able to translate messy (and sometim
 
 This repository shall track my baby steps of exploration and improvement throughout the quarter and hopefully also hold some decent and maybe whimsical pieces of work that I can be proud of.
 
-## Key Contents
-- week_01: Data selfie, Self-introduction
+### week_01: Introduction to HTML & CSS
+- Markdown file with data selfie and self-introduction
+- Text file "Frankenstein.txt" to create a webpage "index.html"
+
+### week_02: Data Humanism & JavaScript
+- dear_data.png: Dear Data project
+- index.html: HTML file for 
+
+### week_03: Introduction to D3.js
+- script.js: JavaScript file for D3.js bar chart exercise
+- index.html: HTML file for D3.js bar chart exercise
+- covid.csv: COVID data for D3.js bar chart exercise
