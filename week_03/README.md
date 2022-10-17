@@ -3,7 +3,7 @@ For my final project, I hope to track the changes in utilisation and delivery of
 
 I will be using several data sources including Medicare/Medicaid Telehealth trends, broadband equity and socio-economic hardship index.
 
-1. Medicare Telehealth Trends, Centers for Medicare & Medicaid Services, State-level, https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-service-type-reports/medicare-telehealth-trends
+1. Medicare Telehealth Trends, Centers for Medicare & Medicaid Services, Federal & State-level, https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-service-type-reports/medicare-telehealth-trends
 - medicare_telehealth_trends_20220906.csv: The Medicare Telehealth Trends dataset provides information about people with Medicare who used telehealth services between January 1, 2020 and March 31, 2022.
 - Primary data source
 
