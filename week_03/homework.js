@@ -56,7 +56,7 @@ d3.csv("library_visits_jan22.csv").then(data => {
 
     bar.append("text") // add chart title
         .attr("x", width/2)
-        .attr("y", 10)
+        .attr("y", 20)
         .attr("text-anchor", "middle")
         .style("font-size", "18px")
         .text("Library Visits in January 2022");
