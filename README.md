@@ -22,6 +22,9 @@ The intersection of tech and design - being able to translate messy (and sometim
   - medicare_telehealth_trends_20220906.csv: Medicare Telehealth Trends, Centers for Medicare & Medicaid Services
   - chicago_internet_equity.csv: Chicago Broadband Equity Analysis (2015-2019), City of Chicago Broadband Equity Projec
   - chicago_hardship_index_2016-2020.csv: Chicago Community Area Hardship Index (2016-2020), University of Illinois Chicago Great Cities Institute
-- index.html: HTML file for D3.js bar chart exercise
-- script.js: JavaScript file for D3.js bar chart exercise
-- covid.csv: COVID data for D3.js bar chart exercise
+- homework.html: HTML file for D3.js bar chart exercise
+- homework.js: JavaScript file for D3.js bar chart exercise
+- library_visits_jan22.csv: Library visits data for D3.js bar chart exercise
+- index.html: HTML file for in-class D3.js bar chart practice
+- script.js: JavaScript file for in-class D3.js bar chart practice
+- covid.csv: COVID data for in-class D3.js bar chart practice
