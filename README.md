@@ -20,7 +20,7 @@ The intersection of tech and design - being able to translate messy (and sometim
 ### week_03: Introduction to D3.js
 - README.md: Exploring Data sources for the Final Project
   - medicare_telehealth_trends_20220906.csv: Medicare Telehealth Trends, Centers for Medicare & Medicaid Services
-  - chicago_internet_equity.csv: Chicago Broadband Equity Analysis (2015-2019), City of Chicago Broadband Equity Projec
+  - chicago_internet_equity.csv: Chicago Broadband Equity Analysis (2015-2019), City of Chicago Broadband Equity Project
   - chicago_hardship_index_2016-2020.csv: Chicago Community Area Hardship Index (2016-2020), University of Illinois Chicago Great Cities Institute
 - homework.html: HTML file for D3.js bar chart exercise
 - homework.js: JavaScript file for D3.js bar chart exercise
