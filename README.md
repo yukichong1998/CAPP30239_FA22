@@ -13,12 +13,15 @@ The intersection of tech and design - being able to translate messy (and sometim
 - data_selfie.jpeg: Data selfie 
 
 ### week_02: Data Humanism & Introduction to JavaScript
-- README.md: Data sources for final project
 - dear_data.png/dear_data_legend.png: Project 1 - Dear Data (Collecting small and personal data)
 - index.html: HTML file for HTML/JavaScript exercise
 - script.js: JavaScript basics
 
 ### week_03: Introduction to D3.js
+- README.md: Exploring Data sources for the Final Project
+  - medicare_telehealth_trends_20220906.csv: Medicare Telehealth Trends, Centers for Medicare & Medicaid Services
+  - chicago_internet_equity.csv: Chicago Broadband Equity Analysis (2015-2019), City of Chicago Broadband Equity Projec
+  - chicago_hardship_index_2016-2020.csv: Chicago Community Area Hardship Index (2016-2020), University of Illinois Chicago Great Cities Institute
 - index.html: HTML file for D3.js bar chart exercise
 - script.js: JavaScript file for D3.js bar chart exercise
 - covid.csv: COVID data for D3.js bar chart exercise
