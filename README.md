@@ -18,7 +18,7 @@ The intersection of tech and design - being able to translate messy (and sometim
 - script.js: JavaScript basics
 
 ### week_03: Introduction to D3.js
-- README.md: Exploring Data sources for the Final Project
+- README.md: Exploring data sources for the final project
   - medicare_telehealth_trends_20220906.csv: Medicare Telehealth Trends, Centers for Medicare & Medicaid Services
   - chicago_internet_equity.csv: Chicago Broadband Equity Analysis (2015-2019), City of Chicago Broadband Equity Project
   - chicago_hardship_index_2016-2020.csv: Chicago Community Area Hardship Index (2016-2020), University of Illinois Chicago Great Cities Institute
