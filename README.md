@@ -17,7 +17,7 @@ The intersection of tech and design - being able to translate messy (and sometim
 - index.html: HTML file for HTML/JavaScript exercise
 - script.js: JavaScript basics
 
-### week_03: Introduction to D3.js
+### week_03: D3 Bar Charts
 - README.md: Exploring data sources for the final project
   - medicare_telehealth_trends_20220906.csv: Medicare Telehealth Trends, Centers for Medicare & Medicaid Services
   - chicago_internet_equity.csv: Chicago Broadband Equity Analysis (2015-2019), City of Chicago Broadband Equity Project
@@ -28,3 +28,13 @@ The intersection of tech and design - being able to translate messy (and sometim
 - index.html: HTML file for in-class D3.js bar chart practice
 - script.js: JavaScript file for in-class D3.js bar chart practice
 - covid.csv: COVID data for in-class D3.js bar chart practice
+
+### week_04: D3 Line and Area Charts
+- homework.html / homework.js: HTML and JavaScript files for D3.js line chart exercise
+- long-term-interest-canada.csv: Data for D3.js line chart exercise
+- horizontal-bar.html / horizontal-bar.js: HTML and JavaScript files for D3.js in-class horizontal bar chart practice
+- line.html / line.js: HTML and JavaScript files for D3.js in-class line chart practice
+- area.html / area.js: HTML and JavaScript files for D3.js in-class area chart practice
+- long-term-interest-monthly.csv: Data for  D3.js in-class line/area chart practice
+- multiline.html / multiline.js: HTML and JavaScript files for D3.js in-class multiline chart practice
+- long-term-interest-G7.csv: Data for  D3.js in-class multiline chart practice
