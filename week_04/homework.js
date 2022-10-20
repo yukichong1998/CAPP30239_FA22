@@ -14,17 +14,17 @@ d3.csv('long-term-interest-canada.csv').then(data => {
     let timeParse = d3.timeParse("%Y-%m"); // can reuse this function for each data point
 
     for (let d of data) {
-        d.Value = +d.Value; // force Value to become a number
-        d.Date = timeParse(d.Date) // force Date to become a date obj
+        d.Num = +d.Num; // force Num to become a number
+        d.Month = timeParse(d.Month) // force Month to become a date obj
     }
     console.log(data);
 
     let x = d3.scaleTime() // 2 arguments: domain (data), range (space it takes up)
-        .domain(d3.extent(data, d => d.Date)).nice() // domain returns an array, d3.extent returns [min, max] in a single pass over the input
+        .domain(d3.extent(data, d => d.Month)).nice() // domain returns an array, d3.extent returns [min, max] in a single pass over the input
         .range([margin.left, width - margin.right]) // range is an array
 
     let y = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.Value)]).nice() // start y-axis at 0, callback function loops through the row we are at
+        .domain([0, d3.max(data, d => d.Num)]).nice() // start y-axis at 0, callback function loops through the row we are at
         .range([height - margin.bottom, margin.top]) // svg is built top-down
 
     svg.append("g")
@@ -59,8 +59,8 @@ d3.csv('long-term-interest-canada.csv').then(data => {
       .text("Interest rate");
 
     let line = d3.line()
-        .x(d => x(d.Date))
-        .y(d => y(d.Value));
+        .x(d => x(d.Month))
+        .y(d => y(d.Num));
     
     svg.append("path")
         .datum(data) // one string to build a singular line ; .data for many points/lines
