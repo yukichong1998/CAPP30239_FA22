@@ -32,6 +32,7 @@ d3.csv('long-term-interest-canada.csv').then(data => {
     svg.append("g")
       .attr("transform", `translate(0,${height - margin.bottom})`)
       .call(d3.axisBottom(x)
+      .tickFormat(d3.timeFormat("%B"))
       .tickSizeOuter(0)); // tickSizeOuter(0) removes overhang on axis
     
     svg.append("g")
