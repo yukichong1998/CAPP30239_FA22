@@ -32,15 +32,15 @@ d3.csv('long-term-interest-canada.csv').then(data => {
     svg.append("g")
       .attr("transform", `translate(0,${height - margin.bottom})`)
       .call(d3.axisBottom(x)
-      .tickFormat(d3.timeFormat("%B"))
-      .tickSizeOuter(0)); // tickSizeOuter(0) removes overhang on axis
+        .tickFormat(d3.timeFormat("%B"))
+        .tickSizeOuter(0)); // remove overhang on axis
     
     svg.append("g")
       .attr("transform", `translate(${margin.left},0)`)
-      .call(d3.axisLeft(y) // must specify what scale we are using
-      .tickSizeOuter(0) // removes top overhang on axis
-      .tickFormat(d => d + "%") // appends % sign next to axis labels
-      .tickSize(-width)); // -width draws the tick across the charts
+      .call(d3.axisLeft(y) // specify what scale we are using
+        .tickSizeOuter(0) // removes top overhang on axis
+        .tickFormat(d => d + "%") // append % sign next to axis labels
+        .tickSize(-width + margin.right + margin.left)); // modified to meet at end of axis
 
     // Construct labels
     svg.append("text")
@@ -64,7 +64,8 @@ d3.csv('long-term-interest-canada.csv').then(data => {
     // Construct a line generator
     let line = d3.line()
         .x(d => x(d.Month))
-        .y(d => y(d.Num));
+        .y(d => y(d.Num))
+        .curve(d3.curveNatural);
     
     svg.append("path")
         .datum(data) // one string to build a singular line
