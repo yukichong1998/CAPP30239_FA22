@@ -38,3 +38,28 @@ The intersection of tech and design - being able to translate messy (and sometim
 - long-term-interest-monthly.csv: Data for  D3.js in-class line/area chart practice
 - multiline.html / multiline.js: HTML and JavaScript files for D3.js in-class multiline chart practice
 - long-term-interest-G7.csv: Data for  D3.js in-class multiline chart practice
+
+### week_05: D3 Histogram Charts and Scatter Plots
+- histogram.html / histogram.js: HTML and JavaScript files for D3.js in-class histogram chart practice
+- histogram-annotation.html / histogram-annotation.js: HTML and JavaScript files for D3.js in-class histogram chart practice
+- histogram-joins.html / histogram-joins.js: HTML and JavaScript files for D3.js in-class histogram chart practice
+- climate-jan/feb/mar.json: Data for D3.js in-class histogram chart practice
+- scatterplot.html / scatterplot.js: HTML and JavaScript files for D3.js in-class multiline chart practice
+- penguins.csv: Data for  D3.js in-class scatterplot practice
+- bisect.html / bisect.js: HTML and JavaScript files for D3.js in-class chart practice
+- long-term-interest-G7.csv: Data for  D3.js in-class chart practice
+- observable.html / observable.js: HTML and JavaScript files for D3.js in-class chart practice
+- cars-2.csv: Data for  D3.js in-class chart practice
+
+### data: Final Project Datasets
+- broadband_deployment.csv: Broadband Deployment Rates (FCC)
+- chicago_comm_areas.csv: Chicago Community Areas (Chicago Data Portal)
+- chicago_internet_equity.csv: Aggregated Data on Internet Connectivity by Community Area (UChicago Internet Initiative/ACS)
+- chicago_tracts_comm_areas.csv: Chicago Tracts to Community Areas (Chicago Data Portal)
+- digital_literacy_age.csv: Digital Literacy Scores by Age 2017 (PIAAC) 
+- digital_literacy_race.csv: Digital Literacy Scores by Race 2017 (PIAAC) 
+- medicare_telehealth_trends.csv: Medicare Telehealth Trends by Quarter 2020-2022 (CMS)
+- telehealth_funding.csv: Telehealth Funding 2017-2021 (CB Insights)
+- telehealth_modality.csv: Telehealth Modality by Race (CMS/ASPE)
+- telehealth_uptake_race.csv: Telehealth Uptake by Race 2019-2020 (CMS/ASPE)
+- telehealth_uptake_rural-urban.csvTelehealth Uptake by Rural/Urban 2019-2020 (CMS/ASPE)
