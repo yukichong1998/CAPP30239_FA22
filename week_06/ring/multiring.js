@@ -4,7 +4,7 @@ d3.json('budget-all.json').then((data) => {
   }
 });
 
-function createRing({ year, values }) { // destructuring
+function createRing({ year, values }) { // object destructuring
   const height = 250,
     width = 300,
     innerRadius = 40,
