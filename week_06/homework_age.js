@@ -55,6 +55,6 @@ d3.json("a3cleanedonly2015.json").then((data) => {
       .attr("y", height)
       .attr("dx", "0.5em")
       .attr("dy", "-0.5em") 
-      .text("Age");
+      .text("Age (years)");
 
 });
