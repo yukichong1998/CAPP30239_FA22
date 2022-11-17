@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Barriers to Telemedicine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Roboto+Slab:wght@300;400;500;700;900&family=Roboto:wght@100;300;400;500;700&family=Rubik+Glitch&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../styles.css"> -->
+  <style>
+    * {
+      font-family: 'Roboto Slab', serif;
+    }
+      
+    #container {
+      max-width: 1040px;
+      display: flex;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Roboto Slab', serif;
+      font-weight: 300;
+      font-size: 1.5em;
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+
+    #title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 5em;
+    }
+    
+    h2 {
+      font-family: 'Roboto', serif;
+      font-weight: 600;
+      padding-top: 1em;
+    }
+
+    #telehealth-growth { 
+      width: 80%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    text {
+      font-size: 10px;
+    }
+
+    path.domain { 
+      display: none;  
+    }
+
+    line {
+      stroke: #ddd;
+      stroke-dasharray: 2;
+    }
+    
+    #uptake-age { 
+      width: 80%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .age { cursor: default; }
+    
+    .age path {
+      stroke-width: 1.5;
+      opacity: 0.75;
+    }
+
+    .highlight path {
+      stroke: #e15759;
+      opacity: 1;
+    }
+
+    .highlight text { fill: #e15759; }
+
+    #modality { 
+      width: 80%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #literacy-race {
+      display: flex;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 id="title">Healing the Disconnect</h1>
+    <h1>The Digital Divide Underlying Disparities in Telehealth Access and Use</h1>
+  </div>
+  
+  <div class="container">
+    <h2>Growth in National Telehealth Usage</h2>
+    <p>Source: <a href="https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-service-type-reports/medicare-telehealth-trends">Medicare Telehealth Trends, Center for Medicare and Medicaid Services</a></p>
+    <div id="telehealth-growth" class="area"></div>
+  </div>
+
+  <div class="container">
+    <h2>Disparities in Telehealth Uptake by Race</h2>
+    <p>Source: <a href="https://aspe.hhs.gov/reports/medicare-beneficiaries-use-telehealth-2020">Medicare Beneficiaries’ Use of Telehealth in 2020, Office of the Assistant Secretary for Planning and Evaluation</a></p>
+    <div id="uptake-race" class="grouped-bar"></div>
+  </div>
+
+  <div class="container">
+    <h2>Disparities in Telehealth Uptake by Age</h2>
+    <p>Source: <a href="https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-service-type-reports/medicare-telehealth-trends">Medicare Telehealth Trends, Center for Medicare and Medicaid Services</a></p>
+    <div id="uptake-age" class="multiline"></div>
+  </div>
+
+  <div class="container">
+    <h2>Disparities in Telehealth Modality by Race</h2>
+    <p>Source: <a href="https://aspe.hhs.gov/sites/default/files/documents/4e1853c0b4885112b2994680a58af9ed/telehealth-hps-ib.pdf">National Survey Trends in Telehealth Use in 2021, Office of the Assistant Secretary for Planning and Evaluation</a></p>
+    <div id="modality" class="stacked-bar"></div>
+  </div>
+
+  <div class="container">
+    <h2>Digital Literacy Scores by Race</h2>
+    <p>Source: <a href="https://nces.ed.gov/surveys/piaac/current_results">Program for the International Assessment of Adult Competencies (PIAAC) 2017</a></p>
+    <div id="literacy-race" class="multiring"></div>
+  </div>
+
+</body>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="telehealth-growth.js"></script>
+<script src="uptake-race.js"></script>
+<script src="uptake-age.js"></script>
+<script src="telehealth-modality.js"></script>
+<script src="literacy-race.js"></script>
+</html>
