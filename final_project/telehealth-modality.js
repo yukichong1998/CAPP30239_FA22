@@ -50,7 +50,7 @@
       .attr("height", d => y(d[0]) - y(d[1]))
       .attr("width",x.bandwidth());
 
-    let legendGroup = svg //how to position legend on top left corner?
+    let legendGroup = svg 
       .selectAll(".legend-group")
       .data(subgroups)
       .join("g")
@@ -60,7 +60,7 @@
       .append("circle")
       .attr("cx", (d, i) => (700 + (i * 75)))
       .attr("cy", 10)
-      .attr("r", 3)
+      .attr("r", 5)
       .attr("fill", (d, i) => color(i));
     
     legendGroup

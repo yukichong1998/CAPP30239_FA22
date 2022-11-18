@@ -15,13 +15,15 @@
       width = 400,
       innerRadius = 60,
       outerRadius = 110,
-      labelRadius = 150;
+      labelRadius = 155;
   
     const arcs = d3.pie().value(d => d.score)(values);
   
     const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
   
     const arcLabel = d3.arc().innerRadius(labelRadius).outerRadius(labelRadius);
+
+    const color = d3.scaleOrdinal(["#4e79a7", "#6C9DD1", "#90BBE9", "#C8E3FF"]);
   
     const svg = d3.select("#literacy-race")
       .append("svg")
@@ -37,7 +39,7 @@
       .selectAll("path")
       .data(arcs)
       .join("path")
-      .attr("fill", (d, i) => d3.schemeTableau10[i])
+      .attr("fill", (d, i) => color(i)) //(d, i) => d3.schemeTableau10[i]
       .attr("d", arc);
   
     svg.append("g")
@@ -49,14 +51,14 @@
       .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
       .selectAll("tspan")
       .data(d => {
-        return [d.data.category, d.data.score];
+        return [d.data.category, d.data.score+"%"];
       })
       .join("tspan")
       .attr("x", 0)
       .attr("y", (d, i) => `${i * 1.1}em`)
       .attr("font-weight", (d, i) => i ? null : "bold")
       .text(d => d)
-      .style("font-size", 12);
+      .style("font-size", 14);
   
     svg.append("text")
       .attr("font-weight", "bold")

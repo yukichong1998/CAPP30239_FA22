@@ -58,7 +58,7 @@
         .x(d => x(d.Date))
         .y(d => y(d.pctTelehealth));
 
-      for (let age of ages) {
+      for (const [index, age] of [...ages].entries()) {
         let ageData = data.filter(d => d.ageGroup === age);
 
         let g = svg.append("g")

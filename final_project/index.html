@@ -11,6 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Roboto+Slab:wght@300;400;500;700;900&family=Roboto:wght@100;300;400;500;700&family=Rubik+Glitch&display=swap" rel="stylesheet">
   <!-- <link rel="stylesheet" href="../styles.css"> -->
   <style>
+
+    svg {
+        overflow: visible;
+    }
+
     * {
       font-family: 'Roboto Slab', serif;
     }
@@ -31,17 +36,17 @@
 
     #title {
       font-family: 'Bebas Neue', cursive;
-      font-size: 5em;
+      font-size: 6em;
     }
     
     h2 {
       font-family: 'Roboto', serif;
       font-weight: 600;
-      padding-top: 1em;
+      padding-top: 1.5em;
     }
 
     #telehealth-growth { 
-      width: 80%;
+      width: 90%;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -82,7 +87,7 @@
     .highlight text { fill: #e15759; }
 
     #modality { 
-      width: 80%;
+      width: 90%;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -90,6 +95,14 @@
 
     #literacy-race {
       display: flex;
+      justify-content: center;
+    }
+
+    #literacy-age {
+      width: 90%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
   </style>
@@ -128,16 +141,32 @@
 
   <div class="container">
     <h2>Digital Literacy Scores by Race</h2>
-    <p>Source: <a href="https://nces.ed.gov/surveys/piaac/current_results">Program for the International Assessment of Adult Competencies (PIAAC) 2017</a></p>
+    <p>Source: <a href="https://nces.ed.gov/surveys/piaac/national_results.asp">Program for the International Assessment of Adult Competencies (PIAAC) 2017</a></p>
     <div id="literacy-race" class="multiring"></div>
+  </div>
+
+  <div class="container">
+    <h2>Digital Literacy Scores by Age</h2>
+    <p>Source: <a href="https://nces.ed.gov/surveys/piaac/national_results.asp">Program for the International Assessment of Adult Competencies (PIAAC) 2017</a></p>
+    <div id="literacy-age" class="horizontal-bar"></div>
+  </div>
+
+  <div class="container">
+    <h2>Internet Inequity Across Chicago Neighborhoods</h2>
+    <p>Source: <a href="https://github.com/chicago-cdac/broadbandequity">American Community Survey, UChicago Internet Equity Initiative</a></p>
+    <div id="legend"></div>
+    <div id="chicago-internet" class="chicago-map"></div>
   </div>
 
 </body>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script src="telehealth-growth.js"></script>
 <script src="uptake-race.js"></script>
 <script src="uptake-age.js"></script>
 <script src="telehealth-modality.js"></script>
 <script src="literacy-race.js"></script>
+<script src="literacy-age.js"></script>
+<script src="chicago-internet.js"></script>
 </html>

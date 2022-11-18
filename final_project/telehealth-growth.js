@@ -17,7 +17,6 @@ d3.csv('data/telehealth_growth.csv').then(data => {
         d.total_telehealth = +d.total_telehealth;
         d.pct_telehealth = +d.pct_telehealth;
     }
-    console.log(data)
 
     let x = d3.scaleTime()
       .domain(d3.extent(data, d => d.date))
@@ -28,9 +27,14 @@ d3.csv('data/telehealth_growth.csv').then(data => {
       .range([height - margin.bottom, margin.top]);
     
     timeFormat = d3.timeFormat("%b-%Y")
+    // svg.append("g")
+    //   .attr("transform", `translate(0,${height - margin.bottom})`)
+    //   .call(d3.axisBottom(x).tickSizeOuter(0).tickFormat(timeFormat));
+
     svg.append("g")
-      .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x).tickSizeOuter(0).tickFormat(timeFormat));
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(d3.axisBottom(x).tickSizeOuter(0).tickFormat(timeFormat).tickValues(d3.timeMonth.range(x.domain()[0], x.domain()[1], 3)));
+
     
     svg.append("g")
       .attr("transform", `translate(${margin.left},0)`)
