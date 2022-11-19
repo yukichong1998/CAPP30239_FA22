@@ -105,6 +105,28 @@
       margin-right: auto;
     }
 
+    #chicago-internet {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 1.5em;
+    }
+
+    /* .legendLinear {
+      padding-bottom: 1.5em;
+    }
+
+    .legendTitle {
+      font-size: 0.75em;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding-bottom: 0;
+    } */
+
+    #legend {
+      width: 200%;
+    }
+
   </style>
 </head>
 
@@ -158,10 +180,18 @@
     <div id="chicago-internet" class="chicago-map"></div>
   </div>
 
+  <div class="container">
+    <h2>Regression</h2>
+    <p>Source: <a href="https://github.com/chicago-cdac/broadbandequity">American Community Survey, UChicago Internet Equity Initiative</a></p>
+    <div id="reg-race" class="chicago-map"></div>
+  </div>
+
 </body>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
+<script src="d3-color-legend.js"></script>
 <script src="telehealth-growth.js"></script>
 <script src="uptake-race.js"></script>
 <script src="uptake-age.js"></script>
@@ -169,4 +199,5 @@
 <script src="literacy-race.js"></script>
 <script src="literacy-age.js"></script>
 <script src="chicago-internet.js"></script>
+<script src="regression.js"></script>
 </html>

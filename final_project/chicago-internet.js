@@ -21,21 +21,40 @@
     const projection = d3.geoAlbers()
       .fitSize([width, height], mesh);
     const path = d3.geoPath().projection(projection);
-
-    const color = d3.scaleQuantize()
-    .domain([0, 30]).nice()
-    .range(d3.schemeReds[9]);
     
-    // d3.select("#legend")
-    //   .node()
-    //   .appendChild(
-    //     Legend(
-    //       d3.scaleOrdinal(
-    //         ["1", "2", "3", "4", "5", "6", "7", "8", "9+"],
-    //         d3.schemeReds[9]
-    //       ), // can explicitly set domain
-    //       { title: "Households with No Internet (%)" }
-    //     ));
+    const color = d3.scaleQuantize()
+      .domain([0, 40]).nice()
+      .range(d3.schemeReds[9]);
+    
+    d3.select("#legend")
+      .node()
+      .appendChild(
+        Legend(
+          d3.scaleOrdinal(
+            ["4", "8", "12", "16", "20", "24", "28", "32", "36+"],
+            d3.schemeReds[9]), 
+          { title: "Households with No Internet (%)" }
+        ));
+    
+    /* Alternate Legend */
+    // const color = d3.scaleLinear()
+    //   .domain([0, 30]).nice()
+    //   .range(["#fff7ec", "#7f0000"]);
+
+    // svg.append("g")
+    //   .attr("class", "legendLinear")
+    //   .attr("transform", "translate(80, 540)")
+    //   .attr("y", 200);
+
+    // var legendLinear = d3.legendColor()
+    //   .shapeWidth(30)
+    //   .cells([5, 10, 15, 20, 25, 30, 35, 40])
+    //   .title("Households with No Internet (%)")
+    //   .orient('horizontal')
+    //   .scale(color);
+    
+    // svg.select(".legendLinear")
+    //   .call(legendLinear);
 
     svg.append("g")
       .selectAll("path")
