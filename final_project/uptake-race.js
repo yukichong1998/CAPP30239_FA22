@@ -7,21 +7,21 @@
 //   .append("svg")
 //   .attr("viewBox", [0, 0, width, height]);
 (function uptake_race() {
-    d3.csv("data/telehealth_uptake_race.csv").then(data => {
-
-        for (let d of data) {
-            d.pct_telehealth = +d.pct_telehealth;
-        };
+    d3.csv("data/telehealth_uptake_race_copy.csv").then(data => {
         console.log(data)
-        let years = ["2019", "2020"];
+        // for (let d of data) {
+        //     d.pct_telehealth = +d.pct_telehealth;
+        // };
+        // console.log(data)
+        
         let chart = GroupedBarChart(data, {
             x: d => d.race,
             y: d => d.pct_telehealth,
             z: d => d.year,
             xDomain: d3.scaleBand(data.map(d => d.race)),
             yLabel: "Telehealth as % of Total Medicare Part B Visits",
-            zDomain: years,
-            // colors: d3.schemeSpectral[years.length]
+            zDomain: ["2019", "2020"],
+            colors: ["#e15759", "#4e79a7"],
         })
         document.getElementById("uptake-race").appendChild(chart);
     });
