@@ -12,7 +12,6 @@
         for (let d of data) {
             d.population = +d.population;
         };
-        console.log(data)
         let chart = StackedAreaChart(data, {
             x: d => d.year,
             y: d => d.population,

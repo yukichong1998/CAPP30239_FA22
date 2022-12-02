@@ -5,209 +5,170 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessibility Barriers to Telemedicine</title>
+  <title>Healing the Disconnect</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
   <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Roboto+Slab:wght@300;400;500;700;900&family=Roboto:wght@100;300;400;500;700&family=Rubik+Glitch&display=swap" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="../styles.css"> -->
-  <style>
-
-    svg {
-        overflow: visible;
-    }
-
-    * {
-      font-family: 'Roboto Slab', serif;
-    }
-      
-    #container {
-      max-width: 1040px;
-      display: flex;
-    }
-
-    h1 {
-      text-align: center;
-      font-family: 'Roboto Slab', serif;
-      font-weight: 300;
-      font-size: 1.5em;
-      margin-block-start: 0;
-      margin-block-end: 0;
-    }
-
-    #title {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 6em;
-    }
-    
-    h2 {
-      font-family: 'Roboto', serif;
-      font-weight: 600;
-      padding-top: 1.5em;
-    }
-
-    #telehealth-growth { 
-      width: 90%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    text {
-      font-size: 10px;
-    }
-
-    span {
-      background-color: yellow;
-    }
-
-    path.domain { 
-      display: none;  
-    }
-
-    line {
-      stroke: #ddd;
-      stroke-dasharray: 2;
-    }
-    
-    #uptake-age { 
-      width: 80%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .age { cursor: default; }
-    
-    .age path {
-      stroke-width: 1.5;
-      opacity: 0.75;
-    }
-
-    .highlight path {
-      stroke: #e15759;
-      opacity: 1;
-    }
-
-    .highlight text { fill: #e15759; }
-
-    #modality { 
-      width: 90%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #literacy-race {
-      display: flex;
-      justify-content: center;
-    }
-
-    #literacy-age {
-      width: 90%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #broadband-access {
-      width: 90%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #chicago-internet {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 1.5em;
-    }
-
-    /* .legendLinear {
-      padding-bottom: 1.5em;
-    }
-
-    .legendTitle {
-      font-size: 0.75em;
-      margin-block-start: 0;
-      margin-block-end: 0;
-      padding-bottom: 0;
-    } */
-
-    #legend {
-      width: 200%;
-    }
-
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="container" id="heading">
     <h1 id="title">Healing the Disconnect</h1>
-    <h1>The Digital Divide Underlying Disparities in Telehealth Access and Use</h1>
+    <h1 id="subtitle">Here’s Why Telehealth is Not All Sunshine and Rainbows (Yet)</h1>
+    <p id="author">By Yuki Chong (MSCAPP'23)</p>
+  </div>
+
+  <div class="container" id="p0">
+    <section id="p0-1">
+        <h2>What exactly is telehealth?</h2>
+        <p>Imagine not having to worry about the wait time, travel costs, taking time off from work or arranging for childcare to accommodate your medical appointments. Instead, you can see your doctor from the comfort of your own bed or sofa. Or even better – having the access to medical specialists that you previously chose not to visit due to the long distance. In essence, telehealth leverages digital information and various communication technologies (including audio and video conferencing) to deliver and support healthcare services remotely.</p>
+    </section>
+    <section id="p0-2">
+        <h4>Telemedicine Can Facilitate a Patient-Provider Interactions Using Different Devices and Modalities</h4>
+        <div id="telehealth-sunburst" class="sunburst">
+            <svg width="600" height="600" viewbox="-400 -400 800 800"></svg>
+        </div>
+        <p class="source">Source: <a href="https://www.kff.org/womens-health-policy/issue-brief/opportunities-and-barriers-for-telemedicine-in-the-u-s-during-the-covid-19-emergency-and-beyond/">Kaiser Family Foundation</a></p>
+    </section>
   </div>
   
-  <div class="container">
-    <h2>Surge in National Telehealth Usage Since COVID-19</h2>
-    <p>Source: <a href="https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-service-type-reports/medicare-telehealth-trends">Medicare Telehealth Trends, Center for Medicare and Medicaid Services</a></p>
-    <div id="telehealth-growth" class="area"></div>
+  <div class="container" id="p1">
+    <section id="p1-1">
+      <h2>63-fold spike in Medicare fee-for-service (FFS) beneficiary telehealth visits in 2020</h2>
+      <p>Since the outbreak of COVID-19, we have witnessed a dramatic spike in the uptake of telehealth services.  A new report from the U.S. Department of Health and Human Services (HHS) reported a 63-fold increase in the number of Medicare fee-for-service (FFS) beneficiary telehealth visits in 2020, from approximately 840,000 in 2019 to nearly 52.7 million in 2020.</p>
+      <p>Based on data released by the Center for Medicare and Medicaid Services (CMS), national telehealth usage peaked in April 2020, with over 45% of Medicare users using at least one telehealth service. While this has since stabilized to approximately 20%, telehealth utilization has nonetheless made remarkable progress from pre-covid times of a mere 7%.</p>
+      <p>In addition, funding to the telehealth space is at an all-time high. Strong continued uptake, favorable regulatory environment, and strong investment into this space are all contributing to this steady rate of adoption – it sure seems like telehealth is poised to stay a robust option for care.</p>
+    </section>
+
+    <section id="p1-2">
+      <h4>Growth in National Telehealth Utilization Since COVID-19</h4>
+      <div id="telehealth-growth" class="area"></div>
+      <p class="source">Source: <a href="https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-service-type-reports/medicare-telehealth-trends">Medicare Telehealth Trends, Center for Medicare and Medicaid Services</a></p>
+    </section>
   </div>
 
-  <div class="container">
-    <h2>Disparities in Telehealth Uptake by Race</h2>
-    <p>Source: <a href="https://aspe.hhs.gov/reports/medicare-beneficiaries-use-telehealth-2020">Medicare Beneficiaries’ Use of Telehealth in 2020, Office of the Assistant Secretary for Planning and Evaluation</a></p>
-    <p>* <span>NOTE:</span> This chart is still currently construction. The code for this chart is available in my GitHub repository, but there is an error that is preventing the function from rendering the chart.</p>
-    <div id="uptake-race" class="grouped-bar"></div>
+  <div class="container" id="p2">
+    <section id="p2-1">
+      <h2>Black and older beneficiaries are less likely to use telehealth</h2>
+      <p>However, is this increased usage and its benefits truly reaching all communities? CMS revealed that disparities in telehealth uptake and modality of telehealth visits exist along racial and generational lines, as well as the rural-urban divide. For instance, a lower telehealth utilization rate was reported for Black and older individuals, as compared to their White and younger counterparts.</p>
+    </section>
+
+    <div id="p2-2">
+      <section id="p2-2-1">
+        <h4>Telehealth Utilization by Race/Ethnicity</h4>
+        <div id="legend-uptake-race"></div>
+        <div id="uptake-race" class="grouped-bar"></div>
+        <p class="source">Source: <a href="https://aspe.hhs.gov/reports/medicare-beneficiaries-use-telehealth-2020">Medicare Beneficiaries’ Use of Telehealth in 2020, Office of the Assistant Secretary for Planning and Evaluation</a></p>
+      </section>
+      <section id="p2-2-2">
+        <h4>Telehealth Utilization by Age</h4>
+        <div id="uptake-age" class="multiline"></div>
+        <p class="source">Source: <a href="https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-service-type-reports/medicare-telehealth-trends">Medicare Telehealth Trends, Center for Medicare and Medicaid Services</a></p>
+      </section>
+    </div>
+    <section id="p2-3">
+      <p>Apart from the surge in telehealth utilization rates across all races between 2019 and 2020, there seems to be noticeable differences in utilization between races, with Black individuals reporting the lowest proportion of telehealth use out of their total Medicare Part B Visits. However, the disparity is much more apparent between different age groups – specifically the older groups ages 65 and above versus their younger counterparts. By the end of Q1 2022, there were over a third of the Medicare users aged 0-64 with at least one Telehealth service, whereas for users aged 65 and above, the numbers wavered between 15-18%.</p>
+    </section>
   </div>
 
-  <div class="container">
-    <h2>Disparities in Telehealth Uptake by Age</h2>
-    <p>Source: <a href="https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-service-type-reports/medicare-telehealth-trends">Medicare Telehealth Trends, Center for Medicare and Medicaid Services</a></p>
-    <div id="uptake-age" class="multiline"></div>
+  <div class="container" id="p3">
+    <section id="p3-1">
+      <h4>Telehealth Modality (Audio/Video) by Race</h4>
+      <div id="modality" class="stacked-bar"></div>
+      <p class="source">Source: <a href="https://aspe.hhs.gov/sites/default/files/documents/4e1853c0b4885112b2994680a58af9ed/telehealth-hps-ib.pdf">National Survey Trends in Telehealth Use in 2021, Office of the Assistant Secretary for Planning and Evaluation</a></p>
+    </section>
+
+    <section id="p3-2">
+      <h2>Modality Matters Too: Video Telehealth Rates Were Lowest Among Non-White Individuals and Adults Aged 65 and Older</h2>
+      <p>Beyond telehealth utilization rates, disparities in access to video telehealth services are an equally significant cause for concern. Live video services offer advantages over audio-only services in many clinical contexts – For instance, it may help certain specialty practitioners to be able to observe you in your home environment and facilitate better assessment of your condition.</p>
+
+      <p>Yet, ASPE reports that video telehealth rates were lowest among older and non-White individuals – with White individuals experiencing 61.9% of their telehealth visits using video services, compared to 53.6%, 50,7% and 51.3% for Black, Hispanic and Asian individuals respectively.</p>
+    </section>
   </div>
 
-  <div class="container">
-    <h2>Disparities in Telehealth Modality by Race</h2>
-    <p>Source: <a href="https://aspe.hhs.gov/sites/default/files/documents/4e1853c0b4885112b2994680a58af9ed/telehealth-hps-ib.pdf">National Survey Trends in Telehealth Use in 2021, Office of the Assistant Secretary for Planning and Evaluation</a></p>
-    <div id="modality" class="stacked-bar"></div>
+  <div>
+    <p>Several barriers can hinder patients from engaging with their providers via telehealth effectively, or even using it altogether – many of which trace back to the underlying digital divide across different populations in the United States. </p>
   </div>
 
-  <div class="container">
-    <h2>Digital Literacy Scores by Race</h2>
-    <p>Source: <a href="https://nces.ed.gov/surveys/piaac/national_results.asp">Program for the International Assessment of Adult Competencies (PIAAC) 2017</a></p>
-    <div id="literacy-race" class="multiring"></div>
+  <div class="container" id="p4">
+    <section id="p4-1">
+      <h2>Over 17% of rural households still struggle with no broadband</h2>
+      <p>Often, the lack of access to secure and reliable internet connectivity or broadband is the first hurdle patients have to overcome to engage with their providers via telehealth. While the latest broadband deployment figures released by the Federal Communications Commission are promising, reporting an overall decline in the percentage of households with no broadband to 4.4% in 2019, down from 10.1% in 2015. </p>
+      <p>However, this remains a work in progress as there remains a clear rural-urban divide in the rate of broadband deployment over the past four years – with over 98% of urban communities enjoying access to broadband, approximately 17% of rural households still struggle with the lack thereof.</p>
+    </section>
+
+    <section id="p4-2">
+      <h4>Broadband Deployment by Rural/Urban</h4>
+      <div id="broadband-line" class="line"></div>
+      <p class="source">Source: <a href="https://www.fcc.gov/reports-research/reports/broadband-progress-reports/fourteenth-broadband-deployment-report">Federal Communications Commission</a></p>
+      </section>
+    </section>
   </div>
 
-  <div class="container">
-    <h2>Digital Literacy Scores by Age</h2>
-    <p>Source: <a href="https://nces.ed.gov/surveys/piaac/national_results.asp">Program for the International Assessment of Adult Competencies (PIAAC) 2017</a></p>
-    <div id="literacy-age" class="horizontal-bar"></div>
+  <div class="container" id="p5">
+    <section id="p5-1">
+      <h2>Today’s literacy goes beyond reading and writing</h2>
+      <p>One factor contributing to this gap in telehealth utilization and experience that is relatively overlooked by policymakers is the issue of digital literacy – Having access to technology is insufficient to ensure access to telehealth, digital literacy, or the understanding of how to actually use the technology to access telehealth services, should not be understated.</p>
+    </section>
+
+    <div id="p5-2">
+      <section id="p5-2-1">
+        <h4>Digital Literacy Scores by Race</h4>
+        <div id="literacy-race" class="horizontal-bar"></div>
+        <p class="source">Source: <a href="https://nces.ed.gov/surveys/piaac/national_results.asp">Program for the International Assessment of Adult Competencies (PIAAC) 2017</a></p>
+      </section>
+      <section id="p5-2-2">
+        <h4>Digital Literacy Scores by Age</h4>
+        <div id="literacy-age" class="horizontal-bar"></div>
+        <p class="source">Source: <a href="https://nces.ed.gov/surveys/piaac/national_results.asp">Program for the International Assessment of Adult Competencies (PIAAC) 2017</a></p>
+      </section>
+    </div>
+
+    <section id="p5-3">
+      <p>Significant performance gaps exist between White adults and all other race/ethnicity categories. In particular, the disparity in digital literacy scores between White and Black adults is stark, with 44% of Black respondents reporting “Below Level 1” proficiency scores, as compared to 20% of their White counterparts. </p>
+      <p>Looking at age, it is clear that the proportion of respondents with lower digital literacy scores increases with age – with 31% and 37% of respondents in the “45-54” and “55-65” age groups respectively reporting “Below Level 1” proficiency scores while less than 20% of their younger counterparts fall in that lowest performance range.</p>
+    </section>
   </div>
 
-  <div class="container">
-    <h2>Broadband Deployment Over the Years</h2>
-    <p>Source: <a href="https://www.fcc.gov/reports-research/reports/broadband-progress-reports/fourteenth-broadband-deployment-report">Federal Communications Commission 14th Broadband Deployment Report</a></p>
-    <div id="broadband-access" class="stacked-area"></div>
+  <h1>Zooming into the City of Chicago</h1>
+  <p>Despite being roughly 29% Black and 29% Hispanic, the city of Chicago is one of the most segregated in America. This legacy of segregation is the underlying cause of the deeply rooted socio-economic disparities and opportunity gaps that exist between different racial communities in Chicago, the gulf that continues to perpetuate inequities across all spheres of life. </p> 
+  <p>Unsurprisingly, inequitable access to quality healthcare is one of the longstanding issues that arose out of and at the same time, continues to reinforce racial segregation till this day. As much as the outbreak of COVID-19 amplified the importance of telehealth in maintaining healthcare service delivery when all came to a standstill, it also made clear that existing socioeconomic inequities were bound to hinder some from accessing this service when they need it most. </p>
+
+  <div class="container" id="p6">
+    <section id="p6-1">
+      <h2>Compounding the Problem: Where Race Meets Internet Connectivity, Telehealth, And So Much More</h2>
+      <p>Despite the overall connectivity levels of Chicago being relatively high, research from the Internet Equity Initiative at the University of Chicago and data released by the American Community Survey (ACS) highlighted that the disparities in access to technology and internet broadband are amplified on a community-level.</p>
+      <p>For instance, a significantly higher proportion of households with no internet is largely concentrated in the west and south sides of Chicago, with over 42% and 38% of households in the Burnside and West Englewood neighborhoods struggling with a lack of internet connectivity.</p>
+    </section>
+
+    <section id="p6-2">
+      <h4>Internet Inequity Across Chicago Neighborhoods</h4>
+      <div id="legend"></div>
+      <div id="chicago-internet" class="chicago-map"></div>
+      <p class="source">Source: <a href="https://github.com/chicago-cdac/broadbandequity">American Community Survey, UChicago Internet Equity Initiative</a></p>
+    </section>
   </div>
 
-  <div class="container">
-    <h1 id="title">Internet Inequity in the City of Chicago</h1>
-    <h1>Would the rise of telehealth mitigate or perpetuate health inequities in the very communities that stand to benefit most from its implementation?</h1>
+  <div class="container" id="p7">
+    <section id="p7-1">
+      <h4>Correlation between Race/Ethnicity and Internet Connectivity in Chicago</h4>
+      <p>[MISSING: REGRESSION CHART]</p>
+      <div id="reg-race" class="chicago-reg"></div>
+      <p class="source">Source: <a href="https://github.com/chicago-cdac/broadbandequity">American Community Survey, UChicago Internet Equity Initiative</a></p>
+    </section>
+
+    <section id="p7-2">
+      <p>Across the 77 neighborhoods in Chicago, internet connectivity was found to be strongly correlated with race/ethnicity, income, unemployment rates, amongst others. The chart on the left reflects a clear positive correlation between the number of households with no internet and the proportion of Black population across neighborhoods.</p>
+      <p>But what does this mean for the future of telehealth in Chicago and beyond?</p>
+    </section>
   </div>
 
-  <div class="container">
-    <h2>Internet Inequity Across Chicago Neighborhoods</h2>
-    <p>Source: <a href="https://github.com/chicago-cdac/broadbandequity">American Community Survey, UChicago Internet Equity Initiative</a></p>
-    <div id="legend"></div>
-    <div id="chicago-internet" class="chicago-map"></div>
-  </div>
-
-  <div class="container">
-    <h2>Relationship between Race/Ethnicity and Internet Connectivity in Chicago </h2>
-    <p>Source: <a href="https://github.com/chicago-cdac/broadbandequity">American Community Survey, UChicago Internet Equity Initiative</a></p>
-    <p>* <span>NOTE:</span> This chart is still currently construction. The code for this chart is available in my GitHub repository, but there is an error that is preventing the function from rendering the chart.</p>
-    <div id="reg-race" class="chicago-reg"></div>
+  <div class="container" id="p8">
+    <h2>The Key to Expanding Telehealth Access: Meeting Communities Where They Are</h2>
+    <p>Undeniably, there is currently a dearth of data collected on community-level telehealth usage in Chicago, but the data available thus far underscores the need to study Chicago’s digital divide on a more granular level in order to implement targeted interventions for different disadvantaged communities based on their unique needs.</p>
+    <p>Without addressing these critical and seemingly elements of telehealth implementation, telehealth will fall short of its promise and, rather than mitigate health inequities, perpetuate health inequities in the very communities that stand to benefit most from its implementation.</p>
   </div>
 
 </body>
@@ -215,14 +176,16 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
+<script src="https://unpkg.com/d3-regression@1.3.10/dist/d3-regression.min.js"></script>
 <script src="d3-color-legend.js"></script>
+<script src="telehealth-sunburst.js"></script>
 <script src="telehealth-growth.js"></script>
 <script src="uptake-race.js"></script>
 <script src="uptake-age.js"></script>
 <script src="telehealth-modality.js"></script>
 <script src="literacy-race.js"></script>
 <script src="literacy-age.js"></script>
-<script src="broadband.js"></script>
+<script src="broadband-line.js"></script>
 <script src="chicago-internet.js"></script>
 <script src="regression.js"></script>
 </html>

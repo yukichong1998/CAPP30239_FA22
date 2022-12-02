@@ -1,6 +1,6 @@
 (function literacy_age() {
-  const width = 800,
-  height = 300,
+  const width = 900,
+  height = 400,
   margin = { top: 30, right: 0, bottom: 20, left: 70 };
 
   const svg = d3.select("#literacy-age")
@@ -16,7 +16,11 @@
 
     svg.append("g")
       .attr("transform", `translate(${margin.left},0)`)
-      .call(d3.axisLeft(y).tickSize(-width + margin.left + margin.right))
+      .call(d3.axisLeft(y).tickSize(-width + margin.left + margin.right));
+
+    svg.append("g")
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(d3.axisBottom(x).tickSizeOuter(0).tickFormat(d => d + "%"));
 
     svg.append("text")
       .attr("class", "y-label")
@@ -26,6 +30,15 @@
       .attr("y", 10)
       .attr("transform", "rotate(-90)")
       .text("Age Group");
+
+    svg.append("text")
+      .attr("class", "x-label")
+      .attr("text-anchor", "end")
+      .attr("x", width - margin.right)
+      .attr("y", height)
+      .attr("dx", "0.5em")
+      .attr("dy", "2em") 
+      .text("% distribution of U.S. adults across levels of proficiency");
 
     const subgroups = data.columns.slice(1);
 
@@ -57,14 +70,14 @@
 
     legendGroup
       .append("circle")
-      .attr("cx", (d, i) => (480 + (i * 90)))
+      .attr("cx", (d, i) => (580 + (i * 90)))
       .attr("cy", 10)
       .attr("r", 5)
       .attr("fill", (d, i) => color(i)); // legend uses the color function
     
     legendGroup
       .append("text")
-      .attr("x", (d, i) => (490 + (i * 90)))
+      .attr("x", (d, i) => (590 + (i * 90)))
       .attr("y", 15)
       .text((d, i) => subgroups[i]);
 

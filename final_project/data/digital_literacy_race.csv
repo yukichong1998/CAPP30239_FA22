@@ -1,6 +1,5 @@
-﻿race,below_level1,level1,level2,level3
-all,24,38,32,6
-hispanic,27,37,31,5
-white,20,38,35,7
-black,44,38,16,2
-others,21,36,34,9
+﻿race,< Level 1,Level 1,Level 2,Level 3
+White,20,38,35,7
+Black,44,38,16,2
+Hispanic,27,37,31,5
+Others,21,36,34,9

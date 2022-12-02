@@ -1,71 +1,94 @@
 (function literacy_race() {
-  let raceLiteracy = [ // How to line break for long category labels? 
-    { race: "White", values: [{category: "Below Level 1", score: 20}, {category: "Level 1", score: 3}, {category: "Level 2", score: 35}, {category: "Level 3", score: 7}]},
-    { race: "Black", values: [{category: "Below Level 1", score: 44}, {category: "Level 1", score: 38}, {category: "Level 2", score: 16}, {category: "Level 3", score: 2}]},
-    { race: "Hispanic", values: [{category: "Below Level 1", score: 27}, {category: "Level 1", score: 37}, {category: "Level 2", score: 31}, {category: "Level 3", score: 5}]},
-    { race: "Others", values: [{category: "Below Level 1", score: 21}, {category: "Level 1", score: 36}, {category: "Level 2", score: 34}, {category: "Level 3", score: 9}]}
-  ];
-
-  for (let d of raceLiteracy) {
-    createRing(d);
-  };
-
-  function createRing({ race, values }) { 
-    const height = 400,
-      width = 400,
-      innerRadius = 60,
-      outerRadius = 110,
-      labelRadius = 155;
-  
-    const arcs = d3.pie().value(d => d.score)(values);
-  
-    const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
-  
-    const arcLabel = d3.arc().innerRadius(labelRadius).outerRadius(labelRadius);
-
-    const color = d3.scaleOrdinal(["#4e79a7", "#6C9DD1", "#90BBE9", "#C8E3FF"]);
+    const width = 900,
+    height = 400,
+    margin = { top: 30, right: 0, bottom: 20, left: 70 };
   
     const svg = d3.select("#literacy-race")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("viewBox", [-width / 2, -height / 2, width, height])
-      .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+    .append("svg")
+    .attr("viewBox", [0, 0, width, height]);
   
-    svg.append("g")
-      .attr("stroke", "white")
-      .attr("stroke-width", 2)
-      .attr("stroke-linejoin", "round")
-      .selectAll("path")
-      .data(arcs)
-      .join("path")
-      .attr("fill", (d, i) => color(i)) //(d, i) => d3.schemeTableau10[i]
-      .attr("d", arc);
+    d3.csv("data/digital_literacy_race.csv").then(data => {
   
-    svg.append("g")
-      .attr("font-size", 14)
-      .attr("text-anchor", "middle")
-      .selectAll("text")
-      .data(arcs)
-      .join("text")
-      .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
-      .selectAll("tspan")
-      .data(d => {
-        return [d.data.category, d.data.score+"%"];
-      })
-      .join("tspan")
-      .attr("x", 0)
-      .attr("y", (d, i) => `${i * 1.1}em`)
-      .attr("font-weight", (d, i) => i ? null : "bold")
-      .text(d => d)
-      .style("font-size", 14);
+      let x = d3.scaleLinear([0, 100], [margin.left, width - margin.right]);
   
-    svg.append("text")
-      .attr("font-weight", "bold")
-      .attr("text-anchor", "middle")
-      .attr("alignment-baseline", "middle")
-      .text(race)
-      .style("font-size", 18);
-  }
+      let y = d3.scaleBand(data.map(d => (d.race)), [margin.top, height - margin.bottom])
+        .padding([0.1]);
+  
+      svg.append("g")
+        .attr("transform", `translate(${margin.left},0)`)
+        .call(d3.axisLeft(y).tickSize(-width + margin.left + margin.right));
 
-})();
+      svg.append("g")
+        .attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(x).tickSizeOuter(0).tickFormat(d => d + "%"));
+  
+      svg.append("text")
+        .attr("class", "y-label")
+        .attr("text-anchor", "end")
+        .attr("x", -margin.top/2)
+        .attr("dx", "-0.5em")
+        .attr("y", 10)
+        .attr("transform", "rotate(-90)")
+        .text("Race");
+
+      svg.append("text")
+        .attr("class", "x-label")
+        .attr("text-anchor", "end")
+        .attr("x", width - margin.right)
+        .attr("y", height)
+        .attr("dx", "0.5em")
+        .attr("dy", "2em") 
+        .text("% distribution of U.S. adults across levels of proficiency");
+  
+      const subgroups = data.columns.slice(1);
+  
+      const color = d3.scaleOrdinal(subgroups, ["#4e79a7", "#6C9DD1", "#90BBE9", "#C8E3FF"]);
+  
+      const stackedData = d3.stack()
+        .keys(subgroups)(data)
+  
+      svg.append("g")
+        .selectAll("g")
+        .data(stackedData)
+        .join("g")
+        .attr("fill", d => color(d.key))
+        .attr("stroke", "white")
+        .attr("stroke-width", 2)
+        .selectAll("rect")
+        .data(d => d)
+        .join("rect")
+        .attr("x", d => x(d[0]))
+        .attr("y", d => y(d.data.race))
+        .attr("width", d => x(d[1]) - x(d[0]))
+        .attr("height", y.bandwidth());
+
+      svg.append("text")
+        .data(stackedData)
+        .attr("class", "text")
+        .attr("x", d => x(d[0]))
+        .attr("dx", "-0.5em")
+        .attr("y", d => y(d.data.race))
+        .text("foo");
+  
+      let legendGroup = svg
+        .selectAll(".legend-group")
+        .data(subgroups)
+        .join("g")
+        .attr("class", "legend-group");
+  
+      legendGroup
+        .append("circle")
+        .attr("cx", (d, i) => (550 + (i * 100)))
+        .attr("cy", 10)
+        .attr("r", 5)
+        .attr("fill", (d, i) => color(i)); // legend uses the color function
+      
+      legendGroup
+        .append("text")
+        .attr("x", (d, i) => (560 + (i * 100)))
+        .attr("y", 15)
+        .text((d, i) => subgroups[i]);
+  
+    })
+  })();
+

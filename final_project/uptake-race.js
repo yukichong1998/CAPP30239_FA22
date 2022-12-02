@@ -1,51 +1,29 @@
-// let height = 500,
-//     width = 800,
-//     margin = ({ top: 25, right: 30, bottom: 35, left: 30 })
-//     innerWidth = width - margin.left - margin.right;
-
-// const svg = d3.select("#uptake-race")
-//   .append("svg")
-//   .attr("viewBox", [0, 0, width, height]);
 (function uptake_race() {
-    d3.csv("data/telehealth_uptake_race_copy.csv").then(data => {
-        console.log(data)
-        // for (let d of data) {
-        //     d.pct_telehealth = +d.pct_telehealth;
-        // };
-        // console.log(data)
+    d3.csv("data/telehealth_uptake_race.csv").then(data => {
         
         let chart = GroupedBarChart(data, {
             x: d => d.race,
             y: d => d.pct_telehealth,
             z: d => d.year,
-            xDomain: d3.scaleBand(data.map(d => d.race)),
+            xDomain: data.map(d => d.race),
+            xLabel: "Race",
             yLabel: "Telehealth as % of Total Medicare Part B Visits",
             zDomain: ["2019", "2020"],
             colors: ["#e15759", "#4e79a7"],
         })
-        document.getElementById("uptake-race").appendChild(chart);
-    });
+        d3.select("#legend-uptake-race")
+          .node()
+          .appendChild(
+            Legend(
+              d3.scaleOrdinal(
+                ["2019", "2020"],
+                ["#e15759", "#4e79a7"]), 
+              { title: "Year" }
+            ));
+        document.getElementById("uptake-race").appendChild(chart)
+    })
 })();
 
-// d3.csv("data/telehealth_uptake_race.csv").then(data => {
-
-//     for (let d of data) {
-//         d.pct_telehealth = +d.pct_telehealth;
-//     };
-//     console.log(data)
-//     let years = ["2019", "2020"];
-//     let chart = GroupedBarChart(data, {
-//         x: d => d.race,
-//         y: d => d.pct_telehealth,
-//         z: d => d.year,
-//         xDomain: d3.scaleBand(data.map(d => d.race)),
-//         yLabel: "Percentage of Medicare Users with a Telehealth Service",
-//         zDomain: years,
-//         // colors: d3.schemeSpectral[years.length]
-//     })
-//     document.getElementById("uptake-race").appendChild(chart);
-
-// });
 
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.
@@ -59,8 +37,9 @@ function GroupedBarChart(data, {
     marginRight = 0, // right margin, in pixels
     marginBottom = 30, // bottom margin, in pixels
     marginLeft = 40, // left margin, in pixels
-    width = 640, // outer width, in pixels
+    width = 800, // outer width, in pixels
     height = 400, // outer height, in pixels
+    xLabel, // a label for the xx-axis
     xDomain, // array of x-values
     xRange = [marginLeft, width - marginRight], // [xmin, xmax]
     xPadding = 0.1, // amount of x-range to reserve to separate groups
@@ -94,7 +73,7 @@ function GroupedBarChart(data, {
     const yScale = yType(yDomain, yRange);
     const zScale = d3.scaleOrdinal(zDomain, colors);
     const xAxis = d3.axisBottom(xScale).tickSizeOuter(0);
-    const yAxis = d3.axisLeft(yScale).ticks(height / 60, yFormat);
+    const yAxis = d3.axisLeft(yScale).ticks(height / 60, yFormat).tickSize(-innerWidth);
   
     // Compute titles.
     if (title === undefined) {
@@ -120,10 +99,11 @@ function GroupedBarChart(data, {
             .attr("x2", width - marginLeft - marginRight)
             .attr("stroke-opacity", 0.1))
         .call(g => g.append("text")
-            .attr("x", -marginLeft)
-            .attr("y", 10)
+            .attr("x", -50)
+            .attr("y", -30)
             .attr("fill", "currentColor")
-            .attr("text-anchor", "start")
+            .attr("text-anchor", "end")
+            .attr("transform", "rotate(-90)")
             .text(yLabel));
   
     const bar = svg.append("g")
@@ -134,14 +114,32 @@ function GroupedBarChart(data, {
         .attr("y", i => yScale(Y[i]))
         .attr("width", xzScale.bandwidth())
         .attr("height", i => yScale(0) - yScale(Y[i]))
-        .attr("fill", i => zScale(Z[i]));
+        .attr("fill", i => zScale(Z[i]))
+      .call(g => g.append("text")
+        .text("foo")
+        .attr("x", i => xScale(X[i]) + xzScale(Z[i]))
+        .attr("y", i => yScale(Y[i]) - 10)
+        .style("fill", "black"));
   
     if (title) bar.append("title")
         .text(title);
   
     svg.append("g")
         .attr("transform", `translate(0,${height - marginBottom})`)
-        .call(xAxis);
+        .call(xAxis)
+        .call(g => g.append("text")
+            .attr("x", width/2)
+            .attr("y", 40)
+            .attr("fill", "currentColor")
+            .attr("text-anchor", "end")
+            .text(xLabel));
+
+    // svg.append("text")
+    //     .text(y)
+    //     .attr("x", x + (xzScale.bandwidth()/2))
+    //     .attr("y", y + 15)
+    //     .attr("text-anchor", "middle")
+    //     .style("fill", "white");
   
     return Object.assign(svg.node(), {scales: {color: zScale}});
   }

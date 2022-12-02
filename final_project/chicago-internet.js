@@ -5,8 +5,8 @@
     .style("position", "absolute")
     .style("visibility", "hidden");
 
-  const height = 610,
-    width = 975;
+  const height = 600,
+    width = 500;
 
   const svg = d3.select("#chicago-internet")
     .append("svg")
@@ -33,7 +33,7 @@
           d3.scaleOrdinal(
             ["4", "8", "12", "16", "20", "24", "28", "32", "36+"],
             d3.schemeReds[9]), 
-          { title: "Households with No Internet (%)" }
+          { title: "% Households with No Internet" }
         ));
     
     /* Alternate Legend */

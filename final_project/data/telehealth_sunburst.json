@@ -1,0 +1,31 @@
+{
+  "name": "telehealth",
+  "children": [
+     {
+      "name": "Devices",
+      "children": [
+       {"name": "Smartphones", "value": 1},
+       {"name": "Computer / Tablets", "value": 1},
+       {"name": "Monitoring devices", "value": 1}
+      ]
+     },
+     {
+      "name": "Modalities",
+      "children": [
+       {"name": "Video call", "value": 1},
+       {"name": "Audio call", "value": 1},
+       {"name": "Remote monitoring", "value": 1},
+       {"name": "Secure messenging", "value": 1}
+      ]
+     },
+     {
+      "name": "Patient Location",
+      "children": [
+        {"name": "Home", "value": 1},
+        {"name": "Hospital", "value": 1},
+        {"name": "Clinic / Office", "value": 1},
+        {"name": "Location of choice", "value": 1}
+       ]
+     }
+    ]
+}

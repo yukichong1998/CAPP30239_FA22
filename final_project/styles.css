@@ -1,0 +1,253 @@
+* {
+  font-family: 'Roboto Slab', serif;
+}
+body {
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+}
+
+svg {
+  overflow: visible;
+}
+  
+.container {
+  margin-bottom: 2em;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  font-size: 1.7em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  text-align: center;
+}
+
+#heading {
+  text-align: center;
+  padding-top: 1em;
+}
+
+#title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 6em;
+  letter-spacing: 0.1em;
+}
+
+#subtitle {
+  letter-spacing: 0.1em;
+}
+
+#author {
+  padding-bottom: 1em;
+}
+
+h2 {
+  font-family: 'Roboto', serif;
+  font-weight: 600;
+  padding-top: 1.5em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+text {
+  font-size: 12px;
+}
+
+path.domain { 
+  display: none;  
+}
+
+line {
+  stroke: #ddd;
+  stroke-dasharray: 2;
+}
+
+.source {
+  font-size: 8px;
+}
+
+#p0-2 {
+  text-align: center;
+}
+
+#telehealth-sunburst svg {
+  width: 70%;
+}
+
+#telehealth-sunburst .text-layer,text {
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+#p1 {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 2em;
+}
+
+#p1-1 {
+  flex-basis: 50%;
+}
+
+#p1-2 {
+  flex-basis: 50%;
+  align-self: center;
+}
+
+#p2-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#p2-2-1 {
+  flex-basis: 46%;
+}
+
+#p2-2-2 {
+  flex-basis: 46%;
+}
+
+
+#uptake-age .age { 
+  cursor: default; 
+}
+
+#uptake-age .age path {
+  stroke-width: 1.5;
+  opacity: 0.75;
+}
+
+#uptake-age .age text {
+  visibility: hidden;
+}
+
+#uptake-age .highlight path {
+  stroke: #e15759;
+  opacity: 1;
+}
+
+#uptake-age .highlight text { 
+  fill: #e15759; 
+  visibility: visible;
+}
+
+#p3 {
+  display: flex;
+  column-gap: 2em;
+}
+
+#p3-1 {
+  flex-basis: 60%;
+  align-self: center;
+}
+
+#p3-2 {
+  flex-basis: 40%;
+}
+
+
+#p4 {
+  display: flex;
+  column-gap: 2em;
+}
+
+#p4-1 {
+  flex-basis: 40%;
+  align-self: center;
+}
+
+#p4-2 {
+  flex-basis: 60%;
+  align-self: center;
+}
+
+#broadband-line .cat { 
+  cursor: default; 
+}
+
+#broadband-line .cat path {
+  stroke-width: 1.5;
+  opacity: 0.75;
+}
+
+#broadband-line .highlight path {
+  stroke: #e15759;
+  opacity: 1;
+}
+
+#broadband-line .highlight text { 
+  fill: #e15759; 
+  visibility: visible;
+}
+
+
+#p5-2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+#p5-2-1, #p5-2-2 {
+  flex-basis: 46%;
+}
+
+#literacy-age, #literacy-race {
+  padding-bottom: 2em;
+}
+
+/* #broadband-access {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+#p6 {
+  display: flex;
+  column-gap: 4em;
+}
+
+#p6-1 {
+  flex-basis: 45%;
+  align-self: center;
+}
+
+#p6-2 {
+  flex-basis: 50%;
+}
+
+/* #chicago-internet {
+  width: 100%;
+} */
+
+.svg-tooltip {
+  background: rgba(69, 77, 93, .9);
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: none;
+  max-width: 320px;
+  padding: 0.5rem;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: pre;
+  z-index: 300;
+  visibility: hidden;
+}
+
+#p7 {
+  display: flex;
+  column-gap: 2em;
+}
+
+#p7-1 {
+  flex-basis: 60%;
+}
+
+#p7-2 {
+  flex-basis: 40%;
+  align-self: center;
+}

@@ -1,7 +1,7 @@
 (function telehealth_modality() {
-  const width = 860,
-    height = 400,
-    margin = {top: 40, right: 40, bottom: 20, left: 40};
+  const width = 900,
+    height = 500,
+    margin = {top: 40, right: 20, bottom: 20, left: 50};
     
   const svg = d3.select("#modality")
     .append("svg")
@@ -50,6 +50,14 @@
       .attr("height", d => y(d[0]) - y(d[1]))
       .attr("width",x.bandwidth());
 
+    // svg.append("text")
+    //   .data(stackedData)
+    //   .attr("x", d => x(d.race))
+    //   .attr("y", d => y(d[1]))
+    //   .attr("x", d => 0)
+    //   .attr("y", d => 0)
+    //   .text(d => d);
+
     let legendGroup = svg 
       .selectAll(".legend-group")
       .data(subgroups)
@@ -58,14 +66,14 @@
 
     legendGroup
       .append("circle")
-      .attr("cx", (d, i) => (700 + (i * 75)))
+      .attr("cx", (d, i) => (660 + (i * 75)))
       .attr("cy", 10)
       .attr("r", 5)
       .attr("fill", (d, i) => color(i));
     
     legendGroup
       .append("text")
-      .attr("x", (d, i) => (710 + (i * 75)))
+      .attr("x", (d, i) => (670 + (i * 75)))
       .attr("y", 15)
       .text((d, i) => subgroups[i]);
 
