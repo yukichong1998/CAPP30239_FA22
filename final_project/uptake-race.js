@@ -35,7 +35,7 @@ function GroupedBarChart(data, {
     title, // given d in data, returns the title text
     marginTop = 30, // top margin, in pixels
     marginRight = 0, // right margin, in pixels
-    marginBottom = 30, // bottom margin, in pixels
+    marginBottom = 20, // bottom margin, in pixels
     marginLeft = 40, // left margin, in pixels
     width = 800, // outer width, in pixels
     height = 430, // outer height, in pixels
@@ -99,7 +99,7 @@ function GroupedBarChart(data, {
             .attr("x2", width - marginLeft - marginRight)
             .attr("stroke-opacity", 0.1))
         .call(g => g.append("text")
-            .attr("x", -50)
+            .attr("x", -30)
             .attr("y", -30)
             .attr("fill", "currentColor")
             .attr("text-anchor", "end")

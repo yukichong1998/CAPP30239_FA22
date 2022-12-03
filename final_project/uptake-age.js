@@ -80,13 +80,13 @@
 
         let str = "* Hover over each line to view corresponding age group."
         svg.append("foreignObject")
-          .attr("x", width/2)
+          .attr("x", width/2+50)
           .attr("y", 0)
-          .attr("width", 400)
-          .attr("height", 100)
+          .attr("width", 300)
+          .attr("height", 160)
           .append('xhtml:div')
           .append("p")
-          .style("font-size","0.8em")
+          .style("font-size","1.2em")
           .html(str);
       }   
     });

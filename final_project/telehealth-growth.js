@@ -34,7 +34,7 @@ d3.csv('data/telehealth_growth.csv').then(data => {
 
     
     svg.append("g")
-      .attr("transform", `translate(${margin.left-20},0)`)
+      .attr("transform", `translate(${margin.left-5},0)`)
       .call(d3.axisLeft(y).tickFormat(d => d + "%").tickSizeOuter(0).tickSize(-width));
 
     // svg.append("text")
