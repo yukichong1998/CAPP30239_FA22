@@ -36,9 +36,9 @@
     svg.append("text")
       .attr("class", "y-label")
       .attr("text-anchor", "end")
-      .attr("x", -margin.top/2 - 80)
+      .attr("x", -margin.top/2)
       .attr("dx", "-0.5em")
-      .attr("y", 0)
+      .attr("y", -10)
       .attr("transform", "rotate(-90)")
       .text("% Households with No Internet");
 
@@ -47,19 +47,18 @@
       .attr("text-anchor", "end")
       .attr("x", width - margin.right)
       .attr("y", height)
-      // .attr("dx", "0.5em")
-      .attr("dy", "-0.5em") 
+      .attr("dx", "0.5em")
       .text("% Black Population");
 
     svg.append("g")
-      .attr("fill", "black")
+      .attr("fill", "#4e79a7")
       .selectAll("circle")
       .data(data)
       .join("circle")
       .attr("cx", d => x(d.black)) // cx, cy is the positioning of circles
       .attr("cy", d => y(d.no_internet))
-      .attr("r", 2) // r is radius
-      .attr("opacity", 0.75);
+      .attr("r", 3) // r is radius
+      .attr("opacity", 0.8);
     
     // linearRegression = d3.regressionLinear()
     //   .x(d => d.black)
@@ -69,26 +68,16 @@
     // svg.append("g")
     //   .attr("class", "linearRegression")
     //   .call(linearRegression)
-    var lg = calcLinear(data, black, no_internet, d3.min(data, function(d){ return d.black}), d3.min(data, function(d){ return d.no_internet}));
-    console.log(lg)
+    // var lg = calcLinear(data, black, no_internet, d3.min(data, function(d){ return d.black}), d3.min(data, function(d){ return d.no_internet}));
+    // console.log(lg)
 
-    svg.append("line")
-      .attr("class", "regression")
-      .attr("x1", x(lg.ptA.x))
-      .attr("y1", y(lg.ptA.y))
-      .attr("x2", x(lg.ptB.x))
-      .attr("y2", y(lg.ptB.y))
-      .attr("stroke", "#4e79a7");
-
-    svg.append("g")
-      .attr("fill", "black")
-      .selectAll("circle")
-      .data(data)
-      .join("circle")
-      .attr("cx", d => x(d.black)) // cx, cy is the positioning of circles
-      .attr("cy", d => y(d.no_internet))
-      .attr("r", 2) // r is radius
-      .attr("opacity", 0.75);
+    // svg.append("line")
+    //   .attr("class", "regression")
+    //   .attr("x1", x(lg.ptA.x))
+    //   .attr("y1", y(lg.ptA.y))
+    //   .attr("x2", x(lg.ptB.x))
+    //   .attr("y2", y(lg.ptB.y))
+    //   .attr("stroke", "#4e79a7");
 
     const tooltip = d3.select("body").append("div")
       .attr("class", "svg-tooltip")
@@ -97,10 +86,10 @@
 
     d3.selectAll("circle")
       .on("mouseover", function(event, d) { // create an event that listens for mouseover
-        d3.select(this).attr("fill", "red");
+        d3.select(this).attr("fill", "#e15759");
         tooltip
           .style("visibility", "visible")
-          .html(`% Black: ${d.black.toFixed(1)}%<br />% Households with No Internet: ${d.no_internet.toFixed(1)}%`);
+          .html(`Neighborhood: ${d.neighborhood}<br /><hr />% Black: ${d.black.toFixed(1)}%<br />% Households with No Internet: ${d.no_internet.toFixed(1)}%`);
       })
       .on("mousemove", function(event) { // create an event that listens for mousemove
         tooltip
@@ -108,7 +97,7 @@
           .style("left", (event.pageX + 10) + "px");
       })
       .on("mouseout", function() {
-        d3.select(this).attr("fill", "black");
+        d3.select(this).attr("fill", "#4e79a7");
         tooltip.style("visibility", "hidden");
       })
     });

@@ -1,7 +1,7 @@
 (function uptake_age() {
     let height = 500,
     width = 800,
-    margin = ({ top: 25, right: 40, bottom: 20, left: 40 })
+    margin = ({ top: 25, right: 40, bottom: 30, left: 40 })
     innerWidth = width - margin.left - margin.right;
 
     const svg = d3.select("#uptake-age")
@@ -18,10 +18,9 @@
         d.pctTelehealth = +d.pctTelehealth;
         ages.add(d.ageGroup);
       }
-      console.log(data);
 
       let x = d3.scaleTime()
-        .domain(d3.extent(data, d => d.Date)).nice()
+        .domain(d3.extent(data, d => d.Date))
         .range([margin.left, width - margin.right]);
 
       let y = d3.scaleLinear()
@@ -36,21 +35,13 @@
       svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y).tickSize(-innerWidth).tickFormat(d => d + "%"));
-
-      // svg.append("text")
-      //   .attr("class", "x-label")
-      //   .attr("text-anchor", "end")
-      //   .attr("x", width - margin.right)
-      //   .attr("y", height)
-      //   .attr("dx", "0.5em")
-      //   .text("Month-Year");
       
       svg.append("text")
         .attr("class", "y-label")
         .attr("text-anchor", "end")
         .attr("x", -margin.top/2)
         .attr("dx", "-0.5em")
-        .attr("y", 0)
+        .attr("y", -10)
         .attr("transform", "rotate(-90)")
         .text("% of Medicare Users with a Telehealth Service");
 
@@ -80,9 +71,6 @@
 
         let lastEntry = ageData[ageData.length - 1];
 
-        // jitterWidth = 40
-        // Math.random()*jitterWidth
-
         g.append("text")
           .text(age)
           .attr("x", x(lastEntry.Date) + 3)
@@ -92,13 +80,13 @@
 
         let str = "* Hover over each line to view corresponding age group."
         svg.append("foreignObject")
-          .attr("x", 500)
+          .attr("x", width/2)
           .attr("y", 0)
-          .attr("width", 280)
+          .attr("width", 400)
           .attr("height", 100)
           .append('xhtml:div')
           .append("p")
-          .style("font-size","10px")
+          .style("font-size","0.8em")
           .html(str);
       }   
     });

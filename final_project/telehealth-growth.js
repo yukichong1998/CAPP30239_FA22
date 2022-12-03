@@ -1,8 +1,8 @@
 /* D3 Area Chart */
 
 const height = 500,
-    width = 600,
-    margin = ({ top: 15, right: 0, bottom: 35, left: 40 });
+    width = 700,
+    margin = ({ top: 15, right: 0, bottom: 35, left: 20 });
     
 const svg = d3.select("#telehealth-growth")
     .append("svg")
@@ -37,21 +37,21 @@ d3.csv('data/telehealth_growth.csv').then(data => {
       .attr("transform", `translate(${margin.left-20},0)`)
       .call(d3.axisLeft(y).tickFormat(d => d + "%").tickSizeOuter(0).tickSize(-width));
 
-    svg.append("text")
-      .attr("class", "x-label")
-      .attr("text-anchor", "end")
-      .attr("x", width - margin.right)
-      .attr("y", height)
-      .attr("dx", "0.5em")
-      .attr("dy", "-0.5em") 
-      .text("Period (Month-Year)");
+    // svg.append("text")
+    //   .attr("class", "x-label")
+    //   .attr("text-anchor", "end")
+    //   .attr("x", width - margin.right)
+    //   .attr("y", height)
+    //   .attr("dx", "0.5em")
+    //   .attr("dy", "-0.5em") 
+    //   .text("Month-Year");
     
     svg.append("text")
       .attr("class", "y-label")
       .attr("text-anchor", "end")
-      .attr("x", -margin.top/2 - 130)
+      .attr("x", -margin.top/2)
       // .attr("dx", "-5em")
-      .attr("y", -10)
+      .attr("y", -40)
       .attr("transform", "rotate(-90)")
       .text("% of Medicare Users with a Telehealth Service");
 
@@ -68,17 +68,17 @@ d3.csv('data/telehealth_growth.csv').then(data => {
 
     let str = "National telehealth usage peaked in April 2020, with <strong>over 45%</strong> of Medicare users using at least one telehealth service."
     svg.append("foreignObject")
-      .attr("x", 160)
+      .attr("x", 170)
       .attr("y", 30)
       .attr("width", 280)
       .attr("height", 100)
       .append('xhtml:div')
       .append("p")
-      .style("font-size","14px")
+      .style("font-size","1.1em")
       .html(str);
     
     svg.append("circle")
-      .attr("cx", 110)
+      .attr("cx", 107)
       .attr("cy", 45)
       .attr("r", 4)
       .attr("fill", "#4e79a7");

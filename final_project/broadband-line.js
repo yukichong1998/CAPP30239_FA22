@@ -1,7 +1,7 @@
 (function broadband_line() {
     let height = 500,
     width = 800,
-    margin = ({ top: 25, right: 40, bottom: 20, left: 40 })
+    margin = ({ top: 25, right: 40, bottom: 30, left: 40 })
     innerWidth = width - margin.left - margin.right;
 
     const svg = d3.select("#broadband-line")
@@ -41,9 +41,9 @@
       svg.append("text")
         .attr("class", "y-label")
         .attr("text-anchor", "end")
-        .attr("x", -margin.top/2-70)
+        .attr("x", -margin.top/2)
         .attr("dx", "-0.5em")
-        .attr("y", 0)
+        .attr("y", -10)
         .attr("transform", "rotate(-90)")
         .text("% Broadband Deployment");
 
@@ -62,7 +62,7 @@
                 d3.select(this).classed("highlight", true);
             });
 
-        if (cat === "Rural") {  // default highlight
+        if (cat === "Rural") { 
             g.classed("highlight", true);
         }
 
@@ -76,7 +76,7 @@
 
         g.append("text")
           .text(cat)
-          .attr("x", x(lastEntry.year) + 30)
+          .attr("x", x(lastEntry.year)+5)
           .attr("y", y(lastEntry.broadband))
           .attr("dominant-baseline", "middle")
           .attr("fill", "#4e79a7");
@@ -88,7 +88,7 @@
       .style("visibility", "hidden");
 
     d3.selectAll("cat")
-      .on("mouseover", function(event, d) { // create an event that listens for mouseover
+      .on("mouseover", function(event, d) { 
         d3.select(this).attr("fill", "red");
         tooltip
           .style("visibility", "visible")

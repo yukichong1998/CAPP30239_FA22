@@ -38,8 +38,8 @@ function GroupedBarChart(data, {
     marginBottom = 30, // bottom margin, in pixels
     marginLeft = 40, // left margin, in pixels
     width = 800, // outer width, in pixels
-    height = 400, // outer height, in pixels
-    xLabel, // a label for the xx-axis
+    height = 430, // outer height, in pixels
+    // xLabel, // a label for the xx-axis
     xDomain, // array of x-values
     xRange = [marginLeft, width - marginRight], // [xmin, xmax]
     xPadding = 0.1, // amount of x-range to reserve to separate groups
@@ -112,7 +112,7 @@ function GroupedBarChart(data, {
       .join("rect")
         .attr("x", i => xScale(X[i]) + xzScale(Z[i]))
         .attr("y", i => yScale(Y[i]))
-        .attr("width", xzScale.bandwidth())
+        .attr("width", xzScale.bandwidth()+5)
         .attr("height", i => yScale(0) - yScale(Y[i]))
         .attr("fill", i => zScale(Z[i]))
       .call(g => g.append("text")
@@ -126,13 +126,13 @@ function GroupedBarChart(data, {
   
     svg.append("g")
         .attr("transform", `translate(0,${height - marginBottom})`)
-        .call(xAxis)
-        .call(g => g.append("text")
-            .attr("x", width/2)
-            .attr("y", 40)
-            .attr("fill", "currentColor")
-            .attr("text-anchor", "end")
-            .text(xLabel));
+        .call(xAxis);
+        // .call(g => g.append("text")
+        //     .attr("x", width/2)
+        //     .attr("y", 40)
+        //     .attr("fill", "currentColor")
+        //     .attr("text-anchor", "end")
+        //     .text(xLabel));
 
     // svg.append("text")
     //     .text(y)

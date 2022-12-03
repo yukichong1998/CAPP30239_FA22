@@ -64,8 +64,12 @@ line {
   stroke-dasharray: 2;
 }
 
+hr {
+  border: 0.05em dashed black;
+}
+
 .source {
-  font-size: 8px;
+  font-size: 0.5em;
 }
 
 #p0-2 {
@@ -73,18 +77,21 @@ line {
 }
 
 #telehealth-sunburst svg {
-  width: 70%;
+  width: 80%;
 }
 
-#telehealth-sunburst .text-layer,text {
+div#telehealth-sunburst .text-layer {
   pointer-events: none;
-  text-anchor: middle;
+}
+
+div#telehealth-sunburst text {
+    text-anchor: middle;
 }
 
 #p1 {
   display: flex;
   justify-content: space-between;
-  column-gap: 2em;
+  column-gap: 4em;
 }
 
 #p1-1 {
@@ -94,6 +101,14 @@ line {
 #p1-2 {
   flex-basis: 50%;
   align-self: center;
+}
+
+div#telehealth-growth .tick text{
+  font-size: 1.5em;
+}
+
+div#telehealth-growth .y-label {
+  font-size: 1em;
 }
 
 #p2-2 {
@@ -109,6 +124,17 @@ line {
   flex-basis: 46%;
 }
 
+div#uptake-race text {
+  font-size: 1.5em;
+}
+
+div#uptake-age text {
+  font-size: 1.5em;
+}
+
+div#uptake-age .y-label {
+  font-size: 1em;
+}
 
 #uptake-age .age { 
   cursor: default; 
@@ -133,9 +159,14 @@ line {
   visibility: visible;
 }
 
+div#legend-uptake-race svg {
+  width: 50%
+}
+
 #p3 {
   display: flex;
   column-gap: 2em;
+  margin-bottom: 0;
 }
 
 #p3-1 {
@@ -147,10 +178,18 @@ line {
   flex-basis: 40%;
 }
 
+div#modality text{
+  font-size: 1em;
+}
+
+div#modality .tick text{
+  font-size: 1.5em;
+}
+
 
 #p4 {
   display: flex;
-  column-gap: 2em;
+  column-gap: 3em;
 }
 
 #p4-1 {
@@ -168,8 +207,7 @@ line {
 }
 
 #broadband-line .cat path {
-  stroke-width: 1.5;
-  opacity: 0.75;
+  stroke-width: 2;
 }
 
 #broadband-line .highlight path {
@@ -182,6 +220,13 @@ line {
   visibility: visible;
 }
 
+div#broadband-line .tick text{
+  font-size: 1.5em;
+}
+
+div#broadband-line text {
+  font-size: 1em;
+}
 
 #p5-2 {
   display: flex;
@@ -196,12 +241,21 @@ line {
   padding-bottom: 2em;
 }
 
-/* #broadband-access {
-  width: 90%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-} */
+div#literacy-age text{
+  font-size: 1.2em;
+}
+
+div#literacy-age .tick text{
+  font-size: 1.5em;
+}
+
+div#literacy-race text{
+  font-size: 1.2em;
+}
+
+div#literacy-race .tick text{
+  font-size: 1.5em;
+}
 
 #p6 {
   display: flex;
@@ -244,10 +298,16 @@ line {
 }
 
 #p7-1 {
-  flex-basis: 60%;
+  flex-basis: 70%;
 }
 
 #p7-2 {
-  flex-basis: 40%;
+  flex-basis: 30%;
   align-self: center;
 }
+
+#writeup {
+  padding-top: 1em;
+}
+
+
