@@ -82,14 +82,14 @@
 
     legendGroup
       .append("circle")
-      .attr("cx", (d, i) => (560 + (i * 90)))
+      .attr("cx", (d, i) => (520 + (i * 100)))
       .attr("cy", 10)
       .attr("r", 5)
       .attr("fill", (d, i) => color(i));
     
     legendGroup
       .append("text")
-      .attr("x", (d, i) => (570 + (i * 90)))
+      .attr("x", (d, i) => (530 + (i * 100)))
       .attr("y", 15)
       .text((d, i) => subgroups[i]);
 
