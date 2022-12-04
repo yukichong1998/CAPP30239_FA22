@@ -74,29 +74,6 @@
         .attr("x", d => x(d[0]) + 5)
         .attr("y", d => y(d.data.race) + y.bandwidth()/2);
   
-    //   svg.append("g")
-    //     .selectAll("g")
-    //     .data(stackedData)
-    //     .join("g")
-    //     .attr("fill", d => color(d.key))
-    //     .attr("stroke", "white")
-    //     .attr("stroke-width", 2)
-    //     .selectAll("rect")
-    //     .data(d => d)
-    //     .join("rect")
-    //     .attr("x", d => x(d[0]))
-    //     .attr("y", d => y(d.data.race))
-    //     .attr("width", d => x(d[1]) - x(d[0]))
-    //     .attr("height", y.bandwidth());
-
-    //   svg.append("text")
-    //     .data(stackedData)
-    //     .attr("class", "text")
-    //     .attr("x", d => x(d[0]))
-    //     .attr("dx", "-0.5em")
-    //     .attr("y", d => y(d[0].data.race))
-    //     .text("foo");
-  
       let legendGroup = svg
         .selectAll(".legend-group")
         .data(subgroups)
@@ -108,7 +85,7 @@
         .attr("cx", (d, i) => (530 + (i * 100)))
         .attr("cy", 10)
         .attr("r", 5)
-        .attr("fill", (d, i) => color(i)); // legend uses the color function
+        .attr("fill", (d, i) => color(i));
       
       legendGroup
         .append("text")

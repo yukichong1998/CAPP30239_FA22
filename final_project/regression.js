@@ -26,7 +26,6 @@
       .attr("transform", `translate(0,${height - margin.bottom})`)
       .attr("class", "x-axis")
       .call(d3.axisBottom(x).tickFormat(d => d + "%").tickSize(-height + margin.top + margin.bottom)) 
-      // negative tickSize to draw all the way across to create grid
 
     svg.append("g")
       .attr("transform", `translate(${margin.left},0)`)
@@ -55,29 +54,24 @@
       .selectAll("circle")
       .data(data)
       .join("circle")
-      .attr("cx", d => x(d.black)) // cx, cy is the positioning of circles
+      .attr("cx", d => x(d.black)) 
       .attr("cy", d => y(d.no_internet))
-      .attr("r", 3) // r is radius
+      .attr("r", 3.5)
       .attr("opacity", 0.8);
-    
-    // linearRegression = d3.regressionLinear()
-    //   .x(d => d.black)
-    //   .y(d => d.no_internet)
-    //   .domain(d3.extent(data, d => d.black));
-    
-    // svg.append("g")
-    //   .attr("class", "linearRegression")
-    //   .call(linearRegression)
-    // var lg = calcLinear(data, black, no_internet, d3.min(data, function(d){ return d.black}), d3.min(data, function(d){ return d.no_internet}));
-    // console.log(lg)
 
-    // svg.append("line")
-    //   .attr("class", "regression")
-    //   .attr("x1", x(lg.ptA.x))
-    //   .attr("y1", y(lg.ptA.y))
-    //   .attr("x2", x(lg.ptB.x))
-    //   .attr("y2", y(lg.ptB.y))
-    //   .attr("stroke", "#4e79a7");
+    linearRegression = d3.regressionLinear()
+      .x(d => d.black)
+      .y(d => d.no_internet)
+      .domain(x.domain());
+  
+    svg.append("g")
+      .attr("class", "linearRegression")
+      .append("line")
+      .datum(linearRegression(data))
+      .attr("x1", d => x(d[0][0]))
+      .attr("x2", d => x(d[1][0]))
+      .attr("y1", d => y(d[0][1]))
+      .attr("y2", d => y(d[1][1]));
 
     const tooltip = d3.select("body").append("div")
       .attr("class", "svg-tooltip")
@@ -85,13 +79,13 @@
       .style("visibility", "hidden");
 
     d3.selectAll("circle")
-      .on("mouseover", function(event, d) { // create an event that listens for mouseover
-        d3.select(this).attr("fill", "#e15759");
+      .on("mouseover", function(event, d) {
+        d3.select(this).attr("fill", "#76b7b2");
         tooltip
           .style("visibility", "visible")
           .html(`Neighborhood: ${d.neighborhood}<br /><hr />% Black: ${d.black.toFixed(1)}%<br />% Households with No Internet: ${d.no_internet.toFixed(1)}%`);
       })
-      .on("mousemove", function(event) { // create an event that listens for mousemove
+      .on("mousemove", function(event) {
         tooltip
           .style("top", (event.pageY - 10) + "px")
           .style("left", (event.pageX + 10) + "px");
@@ -102,90 +96,3 @@
       })
     });
 })();
-
-
-
-// Calculate a linear regression from the data
-// Code obtained from https://bl.ocks.org/HarryStevens/be559bed98d662f69e68fc8a7e0ad097
-
-		// Takes 5 parameters:
-    // (1) Your data
-    // (2) The column of data plotted on your x-axis
-    // (3) The column of data plotted on your y-axis
-    // (4) The minimum value of your x-axis
-    // (5) The minimum value of your y-axis
-// Returns an object with two points, where each point is an object with an x and y coordinate
-
-function calcLinear(data, x, y, minX, minY){
-  /////////
-  //SLOPE//
-  /////////
-
-  // Let n = the number of data points
-  var n = data.length;
-
-  // Get just the points
-  var pts = [];
-  data.forEach(function(d,i){
-    var obj = {};
-    obj.x = d[x];
-    obj.y = d[y];
-    obj.mult = obj.x*obj.y;
-    pts.push(obj);
-  });
-
-  // Let a equal n times the summation of all x-values multiplied by their corresponding y-values
-  // Let b equal the sum of all x-values times the sum of all y-values
-  // Let c equal n times the sum of all squared x-values
-  // Let d equal the squared sum of all x-values
-  var sum = 0;
-  var xSum = 0;
-  var ySum = 0;
-  var sumSq = 0;
-  pts.forEach(function(pt){
-    sum = sum + pt.mult;
-    xSum = xSum + pt.x;
-    ySum = ySum + pt.y;
-    sumSq = sumSq + (pt.x * pt.x);
-  });
-  var a = sum * n;
-  var b = xSum * ySum;
-  var c = sumSq * n;
-  var d = xSum * xSum;
-
-  // Plug the values that you calculated for a, b, c, and d into the following equation to calculate the slope
-  // slope = m = (a - b) / (c - d)
-  var m = (a - b) / (c - d);
-
-  /////////////
-  //INTERCEPT//
-  /////////////
-
-  // Let e equal the sum of all y-values
-  var e = ySum;
-
-  // Let f equal the slope times the sum of all x-values
-  var f = m * xSum;
-
-  // Plug the values you have calculated for e and f into the following equation for the y-intercept
-  // y-intercept = b = (e - f) / n
-  var b = (e - f) / n;
-
-  // Print the equation below the chart
-  document.getElementsByClassName("equation")[0].innerHTML = "y = " + m + "x + " + b;
-  document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
-
-  // return an object of two points
-  // each point is an object with an x and y coordinate
-  return {
-    ptA : {
-      x: minX,
-      y: m * minX + b
-    },
-    ptB : {
-      y: minY,
-      x: (minY - b) / m
-    }
-  }
-
-}

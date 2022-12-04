@@ -59,7 +59,7 @@
                 d3.select(this).classed("highlight", true);
             });
 
-        if (age === "0-64") {  // default highlight
+        if (age === "0-64") {
             g.classed("highlight", true);
         }
 

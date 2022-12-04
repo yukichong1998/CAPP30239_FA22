@@ -312,6 +312,12 @@ div#literacy-race .tick text{
   align-self: center;
 }
 
+g.linearRegression line {
+    stroke: #e15759;
+    stroke-dasharray: none;
+    stroke-width: 0.15em;
+}
+
 .note {
   font-size: 0.5em;
   margin-block-start: 0;

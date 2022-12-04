@@ -6,9 +6,7 @@ d3.json('data/telehealth_sunburst.json')
 
   let svg = d3.select('#telehealth-sunburst svg')
     .append('g');
-
-  // let color = d3.scaleOrdinal(d3.quantize(t => d3.interpolateSpectral(t * 0.9 + 0.2), data.children.length + 1));
-  // let color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
+    
   let color = d3.scaleOrdinal(["#f28e2c","#e15759","#76b7b2"]);
 
   let arc = d3.arc()

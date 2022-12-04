@@ -127,19 +127,6 @@ function GroupedBarChart(data, {
     svg.append("g")
         .attr("transform", `translate(0,${height - marginBottom})`)
         .call(xAxis);
-        // .call(g => g.append("text")
-        //     .attr("x", width/2)
-        //     .attr("y", 40)
-        //     .attr("fill", "currentColor")
-        //     .attr("text-anchor", "end")
-        //     .text(xLabel));
-
-    // svg.append("text")
-    //     .text(y)
-    //     .attr("x", x + (xzScale.bandwidth()/2))
-    //     .attr("y", y + 15)
-    //     .attr("text-anchor", "middle")
-    //     .style("fill", "white");
   
     return Object.assign(svg.node(), {scales: {color: zScale}});
   }

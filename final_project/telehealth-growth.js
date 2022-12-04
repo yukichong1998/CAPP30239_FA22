@@ -36,21 +36,11 @@ d3.csv('data/telehealth_growth.csv').then(data => {
     svg.append("g")
       .attr("transform", `translate(${margin.left-5},0)`)
       .call(d3.axisLeft(y).tickFormat(d => d + "%").tickSizeOuter(0).tickSize(-width));
-
-    // svg.append("text")
-    //   .attr("class", "x-label")
-    //   .attr("text-anchor", "end")
-    //   .attr("x", width - margin.right)
-    //   .attr("y", height)
-    //   .attr("dx", "0.5em")
-    //   .attr("dy", "-0.5em") 
-    //   .text("Month-Year");
     
     svg.append("text")
       .attr("class", "y-label")
       .attr("text-anchor", "end")
       .attr("x", -margin.top/2)
-      // .attr("dx", "-5em")
       .attr("y", -40)
       .attr("transform", "rotate(-90)")
       .text("% of Medicare Users with a Telehealth Service");
@@ -81,6 +71,5 @@ d3.csv('data/telehealth_growth.csv').then(data => {
       .attr("cx", 107)
       .attr("cy", 45)
       .attr("r", 4)
-      .attr("fill", "#4e79a7");
-    
-  });
+      .attr("fill", "#4e79a7"); 
+});
