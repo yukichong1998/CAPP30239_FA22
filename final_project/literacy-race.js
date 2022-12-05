@@ -92,7 +92,6 @@
         .attr("x", (d, i) => (530 + (i * 100)))
         .attr("y", 15)
         .text((d, i) => subgroups[i]);
-  
     })
   })();
 
